@@ -23,13 +23,13 @@ def compare_hands(leftHand, rightHand):
 
 
 def deal_cards(hands=1, size=7):
-  samples = random.sample([x+y for x in RANKS for y in SUITS], hands*size)
+  samples = random.sample([rank+suit for rank in RANKS for suit in SUITS], hands*size)
   return zip(*[iter(samples)]*size)
 
 
 
 def render_hand(hand):
-  return ", ".join(card for card in hand)
+  return ", ".join(hand)
 
 
 
