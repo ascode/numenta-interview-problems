@@ -12,8 +12,8 @@ the hand with the highest score.  There can be at most one winner per round.
 import random
 
 
-RANKS = u"A23456789TJQK"
-SUITS = u"♠♥♦♣"
+RANKS = "A23456789TJQK"
+SUITS = "♠♥♦♣"
 
 
 
@@ -24,7 +24,7 @@ def compare_hands(leftHand, rightHand):
 
 def deal_cards(hands=1, size=7):
   samples = random.sample([rank+suit for rank in RANKS for suit in SUITS], hands*size)
-  return zip(*[iter(samples)]*size)
+  return list(zip(*[iter(samples)]*size))
 
 
 
@@ -62,5 +62,5 @@ if __name__ == "__main__":
 
   result = compare_hands(leftHand, rightHand)
 
-  print render_hand(leftHand), "Win" if result > 0 else ""
-  print render_hand(rightHand), "Win" if result < 0 else ""
+  print(render_hand(leftHand), "Win" if result > 0 else "")
+  print(render_hand(rightHand), "Win" if result < 0 else "")
